@@ -1,6 +1,7 @@
 {
     "builds": [
       { "src": "index.html", "use": "@vercel/static" },
+      { "src": "index.js", "use": "@vercel/static" },
       { "src": "styles/**", "use": "@vercel/static" },
       { "src": "public/images/**", "use": "@vercel/static" },
       { "src": "public/screenshots/**", "use": "@vercel/static" }
@@ -9,6 +10,7 @@
       { "src": "/images/(.*)", "dest": "/public/images/$1" },
       { "src": "/screenshots/(.*)", "dest": "/public/screenshots/$1" },
       { "src": "/styles/(.*)", "dest": "/styles/$1" },
+      { "src": "/index.js", "dest": "/index.js" },
       { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
