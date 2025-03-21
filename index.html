@@ -44,7 +44,7 @@
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-50px);
       }
 
       to {
@@ -53,11 +53,31 @@
       }
     }
 
+    @keyframes floatUpDown {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .floating-image,
+    #scrollToTopBtn {
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+
     .topnav {
       overflow: hidden;
       z-index: 100;
       position: fixed;
-      background-color: rgba(127, 127, 127, 0.9);
+      /* background-color: rgba(127, 127, 127, 0.9); */
+      background-color: rgba(5, 11, 71, 0.9);
       transition: all 0.3s ease-in-out;
       display: flex;
       width: 100%;
@@ -133,13 +153,38 @@
         display: block;
         text-align: left;
       }
+
+      #tawkchat-container {
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+
     }
   </style>
+
+
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/67dd87abd441b7190932adbc/1imslju7g';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </head>
 
 <body>
   <div class="topnav px-6 md:px-24" id="myTopnav">
-    <h1>InnoLab</h1>
+    <h1 class="text-white">InnoLab</h1>
     <div class="">
       <a href="#news">News</a>
       <a href="#contact">Contact</a>
@@ -170,7 +215,7 @@
       </div>
 
       <div class="max-w-full md:max-w-auto mt-8 md:mt-0">
-        <img src="/images/hero-img.png" class="w-full" alt="">
+        <img src="/images/hero-img.png" class="w-full floating-image" alt="">
       </div>
     </div>
   </section>
@@ -491,6 +536,13 @@
     </div>
   </div>
 
+  <!-- <button id="scrollToTopBtn" class="hidden fixed bottom-5 right-5 bg-[#f26422] text-white p-3 rounded-full shadow-md hover:bg-[#d9531e] transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3">
+      <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
+    </svg>
+  </button> -->
+
+
 
   <!-- footer -->
   <footer class="bg-[#141414] dark:bg-gray-900">
@@ -784,7 +836,6 @@
       },
     });
   </script>
-
 
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

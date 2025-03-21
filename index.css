@@ -3,8 +3,15 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+  }
 
 #particles-js {
     position: absolute;
