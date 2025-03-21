@@ -55,6 +55,11 @@
       z-index: 100;
       background-color: rgba(127, 127, 127, 0.9);
       transition: all 0.3s ease-in-out;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
     }
 
     .topnav a {
@@ -81,7 +86,7 @@
     }
 
     @media screen and (max-width: 600px) {
-      .topnav a:not(:first-child) {
+      .topnav a {
         display: none;
       }
 
@@ -95,10 +100,17 @@
       .topnav.responsive {
         position: absolute;
         transition: all 0.3s ease-in-out;
-        top: 0;
-        left: 0;
         width: 100%;
         z-index: 50;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 20px;
+      }
+
+      .topnav.responsive h1 {
+        align-self: flex-start;
+        margin-bottom: 10px;
       }
 
       .topnav.responsive .icon {
@@ -117,16 +129,18 @@
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="#home" class="active" id="homeLink">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-      </svg>
-    </a>
+  <div class="topnav " id="myTopnav">
+    <h1>InnoLab</h1>
+    <div class="">
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </a>
+    </div>
   </div>
   <section class="h-screen bg-[#050b47] bg-cover bg-no-repeat custom-bg relative py-12">
 
