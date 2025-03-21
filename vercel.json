@@ -1,8 +1,12 @@
 {
     "builds": [
-      { "src": "index.html", "use": "@vercel/static" }
+      { "src": "index.html", "use": "@vercel/static" },
+      { "src": "styles/**", "use": "@vercel/static" },
+      { "src": "public/images/**", "use": "@vercel/static" }
     ],
     "routes": [
+      { "src": "/images/(.*)", "dest": "/public/images/$1" },
+      { "src": "/styles/(.*)", "dest": "/styles/$1" },
       { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
