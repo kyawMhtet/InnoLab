@@ -1,23 +1,30 @@
-
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    x.classList.toggle("responsive");
-  }
-  
+let lastScrollTop = 0;
+const navbar = document.getElementById("myTopnav");
 
 window.addEventListener("scroll", function () {
-    var navbar = document.getElementById("myTopnav");
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (window.scrollY < window.innerHeight / 2) {
-        navbar.classList.add("opacity-0", "-translate-y-full");
-        navbar.classList.remove("bg-black", "shadow-lg");
-    } else {
-        navbar.classList.remove("opacity-0", "-translate-y-full");
-        navbar.classList.add("bg-black", "shadow-lg");
-    }
-    if (window.scrollY === 0) {
-        navbar.classList.remove("opacity-0", "-translate-y-full", "bg-black", "shadow-lg");
-    }
+  if (currentScroll > lastScrollTop && currentScroll > 100) {
+    // Scrolling down - hide navbar
+    navbar.style.transform = "translateY(-100%)";
+    navbar.style.transition = "transform 0.3s ease-in-out";
+  } else {
+    // Scrolling up - show navbar
+    navbar.style.transform = "translateY(0)";
+  }
+
+  // Reset navbar at the top
+  if (currentScroll <= 0) {
+    navbar.style.transform = "translateY(0)";
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
 });
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  x.classList.toggle("responsive");
+}
+
 
 
