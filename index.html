@@ -30,6 +30,10 @@
     };
   </script>
   <style>
+    * {
+      overflow-x: hidden;
+    }
+
     .navbar-fixed {
       backdrop-filter: blur(8px);
       background-color: rgba(5, 11, 71, 0.8);
@@ -97,8 +101,7 @@
     }
 
     .topnav a:hover {
-      background-color: #ddd;
-      color: black;
+      color: #f26422;
     }
 
     .topnav a.active {
@@ -112,6 +115,13 @@
     @media screen and (max-width: 600px) {
       .topnav a {
         display: none;
+
+      }
+
+      .topnav h1 {
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: 10px;
       }
 
       .topnav a.icon {
@@ -122,13 +132,14 @@
 
     @media screen and (max-width: 600px) {
       .topnav {
-        position: absolute;
+        overflow: hidden;
       }
 
 
       .topnav.responsive {
         position: absolute;
         transition: all 0.3s ease-in-out;
+        overflow: hidden;
         width: 100%;
         z-index: 50;
         display: flex;
@@ -139,13 +150,13 @@
 
       .topnav.responsive h1 {
         align-self: flex-start;
-        margin-bottom: 10px;
+        /* align-items: center; */
       }
 
       .topnav.responsive .icon {
         position: absolute;
-        right: 0;
-        top: 0;
+        right: 20px;
+        top: 10px;
       }
 
       .topnav.responsive a {
@@ -183,12 +194,15 @@
 </head>
 
 <body>
+
+
   <div class="topnav px-6 md:px-24" id="myTopnav">
     <h1 class="text-white">InnoLab</h1>
-    <div class="">
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+    <div class="links">
+      <a href="#01">About</a>
+      <a href="#02">Services</a>
+      <a href="#03">Works</a>
+      <a href="#04">Contact</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
           <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
@@ -206,12 +220,14 @@
         <h1 class="hero text-3xl md:text-6xl font-bold leading-relaxed tracking-[0.03em] font-montserrat">
           We provide creative solutions to turn your ideas into <span id="typewriter"></span>
         </h1>
-        <button class="uppercase tracking-[0.2em] border-2 border-[#f26422] flex gap-5 py-3 md:py-5 px-6 md:px-10 mt-6 md:mt-10">
-          More about us
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
-            <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
-          </svg>
-        </button>
+        <a href="#01">
+          <button class=" uppercase tracking-[0.2em] border-2 border-[#f26422] flex gap-5 py-3 md:py-5 px-6 md:px-10 mt-6 md:mt-10">
+            More about us
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
+              <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
+            </svg>
+          </button>
+        </a>
       </div>
 
       <div class="max-w-full md:max-w-auto mt-8 md:mt-0">
@@ -223,7 +239,7 @@
 
 
   <!-- body -->
-  <div class="px-6 py-12 md:px-16 lg:px-32 mt-[100px] md:mt-[100px]">
+  <div class="px-6 py-12 md:px-16 lg:px-32 mt-[100px] md:mt-[100px]" id="01">
     <div class="max-w-[75em] mx-auto" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
       <div class="flex gap-4 text-lg md:text-xl tracking-[0.05em] text-[#f26422]">
         <p>01</p>
@@ -302,7 +318,7 @@
 
   </div>
 
-  <div class="bg-gray-700 p-4 py-12 md:py-24">
+  <div class="bg-gray-700 p-4 py-12 md:py-24" id="02">
     <!-- 02 - What We Do -->
     <div class="md:mt-[150px] px-4 md:px-16 lg:px-32">
       <div data-aos="zoom-in" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
@@ -389,7 +405,7 @@
   </div>
 
 
-  <div class="px-6 py-12 md:px-16 lg:px-32 md:pt-32 md:pb-24">
+  <div class="px-6 py-12 md:px-16 lg:px-32 md:pt-32 md:pb-24" id="03">
     <div data-aos="fade-right" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
       <div class="flex gap-4 text-lg md:text-xl tracking-[0.05em] text-[#f26422]">
         <p>03.</p>
@@ -513,7 +529,7 @@
 
 
 
-  <div class="bg-[#141414]">
+  <div class="bg-[#141414]" id="04">
     <div class="px-6 py-12 sm:px-8 md:px-16 lg:px-32 md:pt-32 md:pb-24" data-aos="flip-left" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
 
       <!-- Section Header -->
