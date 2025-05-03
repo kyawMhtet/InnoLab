@@ -486,6 +486,12 @@
       <!-- <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div> -->
     </div>
+    <!-- Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+      <span id="closeModal" class="absolute top-4 right-6 text-white text-4xl cursor-pointer">&times;</span>
+      <img id="modalImage" class="max-w-full max-h-[90vh] rounded-lg shadow-lg" src="" alt="Preview">
+    </div>
+
   </div>
 
 
@@ -849,8 +855,8 @@
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: "auto",
       loop: true,
+      slidesPerView: "auto",
       coverflowEffect: {
         rotate: 50,
         stretch: 0,
@@ -866,10 +872,37 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+
     });
   </script>
 
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      const closeModal = document.getElementById("closeModal");
+
+      document.querySelectorAll(".swiper-slide img").forEach((img) => {
+        img.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+
+      // Also close modal when clicking outside image
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+        }
+      });
+    });
+  </script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
   <script>
